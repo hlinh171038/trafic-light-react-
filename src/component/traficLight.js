@@ -4,33 +4,9 @@ import classnames from 'classnames';
 const RED = 0;
 const ORANGE = 1;
 const GREEN = 2;
-class TraficLight extends Component {
-    
-    constructor(){
-        super();
-        this.state = {
-            currentLight : RED
-        }
-        console.log(this.currentLight);
-       setInterval(()=>{
-        console.log(this.currentLight);
-            this.setState({
-                currentLight: this.getNextLight(this.state.currentLight)
-            });   
-       }, 1000)
-    } 
-     getNextLight(color){
-         switch(color){
-             case RED:
-                return ORANGE;
-             case ORANGE:
-                return GREEN;
-            default:
-                return RED;
-         }
-     }
+class TraficLight extends Component {   
     render(){
-        let {currentLight} = this.state
+        let {currentLight} = this.props
         return (
             <div className="TraficLight">
                 <div className={classnames('buld', 'red',{
